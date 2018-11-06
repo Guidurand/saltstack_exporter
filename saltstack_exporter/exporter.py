@@ -1,3 +1,6 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
 import argparse
 import logging
 import threading
@@ -37,6 +40,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 log = logging.getLogger(__name__)
+
 
 class SaltHighstateCollector(object):
     def __init__(self, caller, highstate_interval):
@@ -149,6 +153,7 @@ def init_logging():
         logger.setLevel(args.log_level)
         stdout_handler = logging.StreamHandler(sys.stdout)
         logger.addHandler(stdout_handler)
+
 
 def main():
     caller = client.Caller()
